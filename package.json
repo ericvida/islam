@@ -5,12 +5,9 @@
     "build": "imba build server.imba"
   },
   "dependencies": {
-    "@vanillawc/wc-markdown": "^1.6.3",
-    "click-outside-js": "0.0.2",
+    "@vaadin/router": "^1.7.4",
     "express": "^4.17.1",
-    "imba": "^2.0.0-alpha.127",
-    "mark.js": "^8.11.1",
-    "zero-md": "^2.1.1"
+    "imba": "^2.0.0-alpha.127"
   },
   "devDependencies": {
     "@types/node": "^14.14.22"

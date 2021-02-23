@@ -1,4 +1,16 @@
 import 'imba/preflight.css'
+import {Router} from '@vaadin/router'
+const outlet = document.getElementById('outlet')
+const router = new Router(outlet)
+router.setRoutes [
+	path: '/',
+	component: 'page-tawaffa'
+	---
+	path: '(.*)'
+	component: 'page-404'
+]
+global css @root
+	scroll-behavior:smooth
 class Surah
 	constructor one, two
 		one = one
@@ -103,8 +115,8 @@ tag ArabicQuoteStyles
 		pb:20px
 	css .word 
 		rd:lg px:3
-		mb:3
-		fs@lt-sm:16px @sm:20px @md: 23px
+		mb:0
+		fs@lt-sm:14px @sm:16px @md: 18px @xl:24px
 		.arabic fs:2em c:cooler7
 		.phonetic fs:.7em ta:center us:none ff:mono c:cooler6
 		@hover
@@ -131,137 +143,13 @@ tag ArabicQuote < ArabicQuoteStyles
 					<span.word[d:flex fld:column py:3].marked=(i is marked - 1)>
 						<div.arabic> item[0]
 						<div.phonetic> item[1]
-tag PageTawafa
-	css & bg:cooler0 d:block
-	def render
-		<self>
-			<h1.title> "The word [Tawaffa]"
-				css fs:13 ta:center c:emerald8 ff:monospace fw:100 bg:cooler1 py:5 mb:4 
-		
-			# Surah 3:55 Jesus' death
-			<section[p:6]>
-				<ArabicQuote title="mu[tawaff]ika" reference="Surah al-Mā'idah,3:55" text=s3-55.paired! marked=6>
-				<Translation>
-					<span slot="name"> "Muhammad Asad"
-					<p slot="ref"> "Surah 3:55"
-					<p slot="text">
-						"Lo! God said: \"O Jesus! Verily, "
-						<mark> "I shall cause thee to die"
-						", and shall exalt thee unto Me, and cleanse thee of [the presence of] those who are bent on denying the truth; and I shall place those who follow thee [far] above those who are bent on denying the truth, unto the Day of Resurrection. In the end, unto Me you all must return, and I shall judge between you with regard to all on which you were wont to differ."
-				<Translation.khmer>
-					<span slot="name"> "Khmer"
-					<p slot="ref"> "Surah 3:55"
-					<p slot="text">
-						"ហើយនៅពេលដែលអល់ឡោះថាឱអ៊ីសា! "
-						<mark> "ការពិតយើងជាអ្នកបញ្ចប់អ្នក"
-						" ជាអ្នកលើកតម្លើងអ្នកទៅកាន់យើងជាអ្នកដែល ជម្រះសំអាតអ្នកពីពួកដែលអជំនឿ និងជាអ្នកធ្វើឱ្យពួកដែលបានប្រតិបត្តិតាមអ្នក ខ្ពង់ខ្ពស់ជាងពួកដែលអជំនឿរហូតដល់ថ្ងៃបរលោក។ ក្រោយមកឆ្ពោះទៅយើងទីវិលត្រឡប់ពួកអ្នក រួចមកយើងនឹងសម្រេចក្តីរវាងពួកអ្នកពីអ្វីដែលពួកអ្នកធ្លាប់ទាស់ទែង"
-			# Surah 5:118
-			<section[p:6]>
-				<ArabicQuote title="[Tawaffa]ytanī" reference="Surah al-Mā'idah, 5:118" text=s5-118.paired! marked=20>
-				
-				<Translation>
-					<span slot="name"> "Shakir"
-					<p slot="ref"> "Surah 5:118"
-					<p slot="text">
-						"I [Jesus] did not say to them aught save what Thou didst enjoin me with: That serve Allah, my Lord and your Lord, and I was a witness of them so long as I was among them, but when Thou didst "
-						<mark> "cause me to die"
-						", Thou wert the watcher over them, and Thou art witness of all things."
-				
-				<Translation.khmer>
-					<span slot="name"> "Khmer"
-					<p slot="ref"> "Surah 5:118"
-					<p slot="text">
-						"ខ្ញុំមិនបាននិយាយទៅពួកគេ ក្រៅពីអ្វីដែលលោកបានបញ្ជាមកខ្ញុំនោះឡើយ គឺ ចូរពួកអ្នកគោរពប្រណិប័តន៍អល់ឡោះជាម្ចាស់យើង និងម្ចាស់ពួកអ្នក។ ហើយខ្ញុំជា សាក្សីលើពួកគេ ដរាបណាខ្ញុំនៅក្នុងចំណោមពួកគេ។ នៅពេលដែល "
-						<mark> " លោកបញ្ចប់ ជីវិតខ្ញុំ"
-						" លោកបញ្ចប់ ជីវិតខ្ញុំ លោកជាអ្នកតាមឃ្លាំមើលពួកគេ។ ហើយលោកជាសាក្សីលើអ្វីៗទាំងអស់"
-			
-			# 2:234
-			<section[p:6]>
-				<ArabicQuote title="Yu[tawaffa]wna" reference="Surah al-Baqara, 2:234" text=s2-234.paired! marked=2>
-				<Translation>
-					<span slot="name"> "Yusuf Ali"
-					<p slot="ref"> "Surah 2:234"
-					<p slot="text">
-						"If any of you "
-						<mark> "die"
-						" and leave widows behind, they shall wait concerning themselves four months and ten days: When they have fulfilled their term, there is no blame on you if they dispose of themselves in a just and reasonable manner. And Allah is well acquainted with what ye do."
-				<Translation.khmer>
-					<span slot="name"> "Khmer"
-					<p slot="ref"> "Surah 2:234"
-					<p slot="text">
-						"ហើយពួកដែល"
-						<mark> "ស្លាប់"
-						"ក្នុងចំណោមពួកអ្នក ដោយបន្សល់ទុ់កនូវភរិយាពួកនាងត្រួវរង់ចាំដោយខ្លួនឯងរយៈពេលបួនខែនិងដប់ថ្ងៃ។ កាលណាពួកនាងបាន ចូលដល់ពេលកំណត់របស់ពួកនាងហើយ ពេលនោះ គ្មានទោសពៃរ៍ទេលើពួកអ្នកក្នុងអ្វីដែលពួកនាងបានធ្វើលើខ្លួនពួកនាងផ្ទាល់ដោយសមរម្យ។ ហើយអល់ឡោះជាអ្នកដឹងជ្រាបបំផុតនូវអ្វីដែលពួកអ្នកបានប្រព្រឹត្ត"
-			
-			# 2:240
-			<section[p:6]>
-				<ArabicQuote title="Yu[tawaffa]wna" reference="Surah al-Baqara, 2:240" text=s2-240.paired! marked=2>
-				<div>
-					<Translation>
-						<span slot="name"> "Yusuf Ali"
-						<p slot="ref"> "Surah 3:193"
-						<p slot="text">
-							"Those of you who "
-							<mark> "die"
-							" and leave widows should bequeath for their widows a year's maintenance and residence; but if they leave (The residence), there is no blame on you for what they do with themselves, provided it is reasonable. And Allah is Exalted in Power, Wise."
-					<Translation.khmer>
-						<span slot="name"> "Khmer"
-						<p slot="ref"> "Surah 3:193"
-						<p slot="text">
-							"និងពួកដែលនឹង "
-							<mark> "ស្លាប់" 
-							" ក្នុងចំណោមពួកអ្នកហើយបានបន្សល់ទុកភរិយា ត្រូវផ្តែផ្តាំមួយចំពោះភរិយារបស់ពួកគេជាការសោមនស្សមួយ រហូតដល់មួយឆ្នាំដោយគ្មានការបណ្តេញ។ រួចបើពួកនាងបានចេញ ក៏គ្មានទោសពៃរ៍លើពួកអ្នកដែរ ក្នុងអ្វីដែលពួកនាងបានធ្វើក្នុងខ្លូនឯងដោយសមរម្យ។ អល់ឡោះជាអ្នកមានអានុភាពមហាគតិបណ្ឌិត"
-			# 3-193
-			<section[p:6]>
-				<ArabicQuote title="wa‑[tawaffa]nā" reference="Surah al-Baqara, 3:193" text=s3-193.paired! marked=18>
-				<div>
-					<Translation>
-						<span slot="name"> "Shakir"
-						<p slot="ref"> "Surah 3:193"
-						<p slot="text">
-							"Our Lord! surely we have heard a preacher calling to the faith, saying: Believe in your Lord, so we did believe; Our Lord! forgive us therefore our faults, and cover our evil deeds and "
-							<mark> "make us die"
-							"with the righteous."
-					<Translation>
-						<span slot="name"> "Yusuf Ali"
-						<p slot="ref"> "Surah 3:193"
-						<p slot="text">
-							"Our Lord! we have heard the call of one calling (Us) to Faith, 'Believe ye in the Lord,' and we have believed. Our Lord! Forgive us our sins, blot out from us our iniquities, and "
-							<mark> "take to Thyself our souls"
-							" in the company of the righteous."
-					<Translation.khmer>
-						<span slot="name"> "Khmer"
-						<p slot="ref"> "Surah 3:193"
-						<p slot="text">
-							"ឱម្ចាស់យើង! ពិតប្រាកដណាស់ យើងបានឮអ្នកដែលហៅ ទៅកាន់ជំនឿថា ចូរពួកអ្នកជឿនឹងម្ចាស់របស់ពួកអ្នក។ យើងក៏បានជឿហើយ។ ឱម្ចាស់របស់យើង! ដូចនេះ សូមលោកប្រោសប្រណីឱ្យពួកយើងផង នូវកំហុសឆ្គង ទាំងឡាយរបស់ពួកយើង ហើយសូមមេត្តាលោកលុបពីយើងផង នូវអំពើអាក្រក់ ទាំងឡាយរបស់យើង។ ហើយសូមមេត្តាលោក"
-							<mark> "បញ្ចប់ជីវិត"
-							"របស់ពួកយើង ជាមួយ នឹងពួកអ្នកសាងអំពើល្អផង"
-			# 12:101
-			<section[p:6]>
-				<ArabicQuote title="[tawaffa]nī" reference="Surah al-Baqara, 12:101" text=s12-101.paired! marked=18>
-				<div>
-					<Translation>
-						<span slot="name"> "Yusuf Ali"
-						<p slot="ref"> "Surah 12:101"
-						<p slot="text">
-							"My Lord! Thou hast given me of the kingdom and taught me of the interpretation of sayings: Originator of the heavens and the earth! Thou art my guardian in this world and the hereafter; "
-							<mark> "make me die"
-							" a muslim and join me with the good."
-					<Translation.khmer>
-						<span slot="name"> "Khmer"
-						<p slot="ref"> "Surah 12:101"
-						<p slot="text">
-							"ឱម្ចាស់របស់ខ្ញុំ! លោកបានផ្តល់ឱ្យខ្ញុំយ៉ាងប្រាកដ នូវភាគខ្លះនៃ រាជាធិបតេយ្យឱ្យ ហើយលោកបានបង្រៀនខ្ញុំភាគខ្លះ នៃការកាត់សុបិនទាំងឡាយ ។ ឱអ្នក ដែលបង្កើតភពមេឃទាំងឡាយ និងភពផែនដី លោកជាអ្នកគាំពារខ្ញុំ ក្នុងលោកបច្ចុប្បន្ន និងលោកខាងមុខ សូមលោក"
-							<mark> "បញ្ចប់ជីវិតខ្ញុំ"
-							"ដោយប្រតិបត្តិផង ហើយសូមលោកភ្ជាប់ ខ្ញុំនឹងពួកដែលសាងកុសលផង"
-
-tag app
+tag nav-global
 	css nav
 		w:100%
 		bg:emerald0
 		d:flex 
 		jc:space-evenly ai:center
-		li 
+		a
 			h:60px 
 			list-style-type:none
 			ai:center jc:center
@@ -271,11 +159,171 @@ tag app
 	def render
 		<self>
 			<nav>
-				<li[cursor:pointer] route-to="/$"> "home"
-				<li[cursor:pointer] route-to="/tawaffa"> "Tawafa"
+				<a[cursor:pointer] href="/"> "home"
+				<a[cursor:pointer] href="/tawaffa"> "Tawafa"
+tag page-tawaffa
+	css & bg:cooler0 d:block
+	prop chapter = location.params.chapter
+	prop ayat = location.params.ayat
+	def render
+		<self>
+			# <nav-global>
+			<h1.title> "The word [Tawaffa]"
+				css fs:13 ta:center c:emerald1 ff:monospace fw:100 bg:emerald9 py:5
+			<section[d:flex]>
+				<nav-tawaffa>
+				<div[fl: 1 0 120px bg:emerald9]>
+				<main[]>
+					# Surah 3:55 Jesus' death
+					<section[p:6]#s3-55>
+						<ArabicQuote title="mu[tawaff]ika" reference="Surah al-Mā'idah,3:55" text=s3-55.paired! marked=6>
+						<Translation>
+							<span slot="name"> "Muhammad Asad"
+							<p slot="ref"> "Surah 3:55"
+							<p slot="text">
+								"Lo! God said: \"O Jesus! Verily, "
+								<mark> "I shall cause thee to die"
+								", and shall exalt thee unto Me, and cleanse thee of [the presence of] those who are bent on denying the truth; and I shall place those who follow thee [far] above those who are bent on denying the truth, unto the Day of Resurrection. In the end, unto Me you all must return, and I shall judge between you with regard to all on which you were wont to differ."
+						<Translation.khmer>
+							<span slot="name"> "Khmer"
+							<p slot="ref"> "Surah 3:55"
+							<p slot="text">
+								"ហើយនៅពេលដែលអល់ឡោះថាឱអ៊ីសា! "
+								<mark> "ការពិតយើងជាអ្នកបញ្ចប់អ្នក"
+								" ជាអ្នកលើកតម្លើងអ្នកទៅកាន់យើងជាអ្នកដែល ជម្រះសំអាតអ្នកពីពួកដែលអជំនឿ និងជាអ្នកធ្វើឱ្យពួកដែលបានប្រតិបត្តិតាមអ្នក ខ្ពង់ខ្ពស់ជាងពួកដែលអជំនឿរហូតដល់ថ្ងៃបរលោក។ ក្រោយមកឆ្ពោះទៅយើងទីវិលត្រឡប់ពួកអ្នក រួចមកយើងនឹងសម្រេចក្តីរវាងពួកអ្នកពីអ្វីដែលពួកអ្នកធ្លាប់ទាស់ទែង"
+					# Surah 5:118
+					<section[p:6]#s5-118>
+						<ArabicQuote title="[Tawaffa]ytanī" reference="Surah al-Mā'idah, 5:118" text=s5-118.paired! marked=20>
+						<Translation>
+							<span slot="name"> "Shakir"
+							<p slot="ref"> "Surah 5:118"
+							<p slot="text">
+								"I [Jesus] did not say to them aught save what Thou didst enjoin me with: That serve Allah, my Lord and your Lord, and I was a witness of them so long as I was among them, but when Thou didst "
+								<mark> "cause me to die"
+								", Thou wert the watcher over them, and Thou art witness of all things."
+						
+						<Translation.khmer>
+							<span slot="name"> "Khmer"
+							<p slot="ref"> "Surah 5:118"
+							<p slot="text">
+								"ខ្ញុំមិនបាននិយាយទៅពួកគេ ក្រៅពីអ្វីដែលលោកបានបញ្ជាមកខ្ញុំនោះឡើយ គឺ ចូរពួកអ្នកគោរពប្រណិប័តន៍អល់ឡោះជាម្ចាស់យើង និងម្ចាស់ពួកអ្នក។ ហើយខ្ញុំជា សាក្សីលើពួកគេ ដរាបណាខ្ញុំនៅក្នុងចំណោមពួកគេ។ នៅពេលដែល "
+								<mark> " លោកបញ្ចប់ ជីវិតខ្ញុំ"
+								" លោកបញ្ចប់ ជីវិតខ្ញុំ លោកជាអ្នកតាមឃ្លាំមើលពួកគេ។ ហើយលោកជាសាក្សីលើអ្វីៗទាំងអស់"
+					
+					# 2:234
+					<section[p:6]#s2-234>
+						<ArabicQuote title="Yu[tawaffa]wna" reference="Surah al-Baqara, 2:234" text=s2-234.paired! marked=2>
+						<Translation>
+							<span slot="name"> "Yusuf Ali"
+							<p slot="ref"> "Surah 2:234"
+							<p slot="text">
+								"If any of you "
+								<mark> "die"
+								" and leave widows behind, they shall wait concerning themselves four months and ten days: When they have fulfilled their term, there is no blame on you if they dispose of themselves in a just and reasonable manner. And Allah is well acquainted with what ye do."
+						<Translation.khmer>
+							<span slot="name"> "Khmer"
+							<p slot="ref"> "Surah 2:234"
+							<p slot="text">
+								"ហើយពួកដែល"
+								<mark> "ស្លាប់"
+								"ក្នុងចំណោមពួកអ្នក ដោយបន្សល់ទុ់កនូវភរិយាពួកនាងត្រួវរង់ចាំដោយខ្លួនឯងរយៈពេលបួនខែនិងដប់ថ្ងៃ។ កាលណាពួកនាងបាន ចូលដល់ពេលកំណត់របស់ពួកនាងហើយ ពេលនោះ គ្មានទោសពៃរ៍ទេលើពួកអ្នកក្នុងអ្វីដែលពួកនាងបានធ្វើលើខ្លួនពួកនាងផ្ទាល់ដោយសមរម្យ។ ហើយអល់ឡោះជាអ្នកដឹងជ្រាបបំផុតនូវអ្វីដែលពួកអ្នកបានប្រព្រឹត្ត"
+					
+					# 2:240
+					<section[p:6]#s2-240>
+						<ArabicQuote title="Yu[tawaffa]wna" reference="Surah al-Baqara, 2:240" text=s2-240.paired! marked=2>
+						<div>
+							<Translation>
+								<span slot="name"> "Yusuf Ali"
+								<p slot="ref"> "Surah 2:240"
+								<p slot="text">
+									"Those of you who "
+									<mark> "die"
+									" and leave widows should bequeath for their widows a year's maintenance and residence; but if they leave (The residence), there is no blame on you for what they do with themselves, provided it is reasonable. And Allah is Exalted in Power, Wise."
+							<Translation.khmer>
+								<span slot="name"> "Khmer"
+								<p slot="ref"> "Surah 2:240"
+								<p slot="text">
+									"និងពួកដែលនឹង "
+									<mark> "ស្លាប់" 
+									" ក្នុងចំណោមពួកអ្នកហើយបានបន្សល់ទុកភរិយា ត្រូវផ្តែផ្តាំមួយចំពោះភរិយារបស់ពួកគេជាការសោមនស្សមួយ រហូតដល់មួយឆ្នាំដោយគ្មានការបណ្តេញ។ រួចបើពួកនាងបានចេញ ក៏គ្មានទោសពៃរ៍លើពួកអ្នកដែរ ក្នុងអ្វីដែលពួកនាងបានធ្វើក្នុងខ្លូនឯងដោយសមរម្យ។ អល់ឡោះជាអ្នកមានអានុភាពមហាគតិបណ្ឌិត"
+					# 3-193
+					<section[p:6]#s3-193>
+						<ArabicQuote title="wa‑[tawaffa]nā" reference="Surah al-Baqara, 3:193" text=s3-193.paired! marked=18>
+						<div>
+							<Translation>
+								<span slot="name"> "Shakir"
+								<p slot="ref"> "Surah 3:193"
+								<p slot="text">
+									"Our Lord! surely we have heard a preacher calling to the faith, saying: Believe in your Lord, so we did believe; Our Lord! forgive us therefore our faults, and cover our evil deeds and "
+									<mark> "make us die"
+									"with the righteous."
+							<Translation>
+								<span slot="name"> "Yusuf Ali"
+								<p slot="ref"> "Surah 3:193"
+								<p slot="text">
+									"Our Lord! we have heard the call of one calling (Us) to Faith, 'Believe ye in the Lord,' and we have believed. Our Lord! Forgive us our sins, blot out from us our iniquities, and "
+									<mark> "take to Thyself our souls"
+									" in the company of the righteous."
+							<Translation.khmer>
+								<span slot="name"> "Khmer"
+								<p slot="ref"> "Surah 3:193"
+								<p slot="text">
+									"ឱម្ចាស់យើង! ពិតប្រាកដណាស់ យើងបានឮអ្នកដែលហៅ ទៅកាន់ជំនឿថា ចូរពួកអ្នកជឿនឹងម្ចាស់របស់ពួកអ្នក។ យើងក៏បានជឿហើយ។ ឱម្ចាស់របស់យើង! ដូចនេះ សូមលោកប្រោសប្រណីឱ្យពួកយើងផង នូវកំហុសឆ្គង ទាំងឡាយរបស់ពួកយើង ហើយសូមមេត្តាលោកលុបពីយើងផង នូវអំពើអាក្រក់ ទាំងឡាយរបស់យើង។ ហើយសូមមេត្តាលោក"
+									<mark> "បញ្ចប់ជីវិត"
+									"របស់ពួកយើង ជាមួយ នឹងពួកអ្នកសាងអំពើល្អផង"
+					# 12:101
+					<section[p:6]#s12-101>
+						<ArabicQuote title="[tawaffa]nī" reference="Surah al-Baqara, 12:101" text=s12-101.paired! marked=18>
+						<div>
+							<Translation>
+								<span slot="name"> "Yusuf Ali"
+								<p slot="ref"> "Surah 12:101"
+								<p slot="text">
+									"My Lord! Thou hast given me of the kingdom and taught me of the interpretation of sayings: Originator of the heavens and the earth! Thou art my guardian in this world and the hereafter; "
+									<mark> "make me die"
+									" a muslim and join me with the good."
+							<Translation.khmer>
+								<span slot="name"> "Khmer"
+								<p slot="ref"> "Surah 12:101"
+								<p slot="text">
+									"ឱម្ចាស់របស់ខ្ញុំ! លោកបានផ្តល់ឱ្យខ្ញុំយ៉ាងប្រាកដ នូវភាគខ្លះនៃ រាជាធិបតេយ្យឱ្យ ហើយលោកបានបង្រៀនខ្ញុំភាគខ្លះ នៃការកាត់សុបិនទាំងឡាយ ។ ឱអ្នក ដែលបង្កើតភពមេឃទាំងឡាយ និងភពផែនដី លោកជាអ្នកគាំពារខ្ញុំ ក្នុងលោកបច្ចុប្បន្ន និងលោកខាងមុខ សូមលោក"
+									<mark> "បញ្ចប់ជីវិតខ្ញុំ"
+									"ដោយប្រតិបត្តិផង ហើយសូមលោកភ្ជាប់ ខ្ញុំនឹងពួកដែលសាងកុសលផង"
+tag nav-tawaffa < nav
+	prop fixed = false
+	css &
+		d:flex fld:column
+		w:120px
+		a p:3 c:emerald0
+			bg:emerald8 @hover:emerald7
+		&.fixed
+			pos:fixed
+	def onScroll
+		return true
+	def render
+		<self .fixed>
+			console.log window.scrollY
+			<a href="#" router-ignore> "Top"
+			<a href="#s3-55" router-ignore> "Surah 3:55"
+			<a href="#s5-118" router-ignore> "Surah 5:118"
+			<a href="#s2-234" router-ignore> "Surah 2:234"
+			<a href="#s2-240" router-ignore> "Surah 2:240"
+			<a href="#s3-193" router-ignore> "Surah 3:193"
+			<a href="#s12-101" router-ignore> "Surah 12:101"
+
+tag page-404
+	css a fs:15 d:block p:4 ta:center bg:warmer1 @hover:rose9 c:rose9 @hover:rose0 h:100vh
+	def render
+		<self>
+			<a href="/"> "Wrong page. go home!"
+tag page-home
+	def render
+		<self>
 			<section> 
-				<h1[ff:sans fs:xl ta:center my:20] route="/$"> "My notes on Islam"
-			<PageTawafa route="/tawaffa"> 
-imba.mount <app>
+				<a[ff:sans fs:xl ta:center my:20] href="/"> "My notes on Islam"
+tag app-root
+	def render
+		<self>
+imba.mount <app-root>
 
 # Tawaffa instances: https://ahmadianswers.com/jesus/misquotehadith/tawaffa/
