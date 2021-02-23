@@ -163,7 +163,7 @@ tag PageTawafa
 					<span slot="name"> "Shakir"
 					<p slot="ref"> "Surah 5:118"
 					<p slot="text">
-						"I did not say to them aught save what Thou didst enjoin me with: That serve Allah, my Lord and your Lord, and I was a witness of them so long as I was among them, but when Thou didst "
+						"I [Jesus] did not say to them aught save what Thou didst enjoin me with: That serve Allah, my Lord and your Lord, and I was a witness of them so long as I was among them, but when Thou didst "
 						<mark> "cause me to die"
 						", Thou wert the watcher over them, and Thou art witness of all things."
 				
@@ -271,8 +271,10 @@ tag app
 	def render
 		<self>
 			<nav>
-				<li route-to="/$"><a href="/$"> "home"
-				<li route-to="/tawaffa"><a href=""> "Tawafa"
+				<li[cursor:pointer] route-to="/$"> "home"
+				<li[cursor:pointer] route-to="/tawaffa"> "Tawafa"
+			<section> 
+				<h1[ff:sans fs:xl ta:center my:20] route="/$"> "My notes on Islam"
 			<PageTawafa route="/tawaffa"> 
 imba.mount <app>
 
