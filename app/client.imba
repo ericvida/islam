@@ -1,5 +1,7 @@
 import 'imba/preflight.css'
 
+let active = true
+
 global css @root
 	scroll-behavior:smooth
 
@@ -299,8 +301,7 @@ tag page-home
 	css & py:4 d:block ta:center
 	def render
 		<self>
-			<h1[ta:center]> "Articles"
-			<a href="/tawaffa" route-to="/tawaffa"> "Tawaffana"
+			<a[td@hover:underline] href="/tawaffa" route-to="/tawaffa"> "Tawaffana"
 
 tag offset-nav-wrapper
 	css & 
@@ -333,7 +334,6 @@ tag offset-nav-wrapper
 		py:3 px:4 
 		cursor:pointer 
 		# us:none
-	prop active = false
 	def toggleNav
 		active = !active
 	def render
@@ -344,16 +344,16 @@ tag offset-nav-wrapper
 			<button.active=active @click.toggleNav> "NAV"
 
 tag side-bar
+	def toggleNav
+		active = !active
 	def render
 		<self>
 			for link in routes
-				<a route-to=link.url> link.name
+				<a @click.wait(0.5s).toggleNav route-to=link.url> link.name
 
 tag app-root
 	css & bg:cooler0 d:block
 		ofx:hidden
-	def toggleNavBar
-		navBarActive = !navBarActive
 	def render
 		<self>
 			<offset-nav-wrapper>
@@ -362,8 +362,8 @@ tag app-root
 					<page-home route="/home">
 					<page-tawaffa route="/tawaffa">
 					<page-404 route="/404">
-					<footer>
-						<h1[ta:center py:4]> "Vida Apps"
+					# <footer>
+					# 	<h1[ta:center py:4]> "Vida Apps"
 			
 imba.mount <app-root>
 
